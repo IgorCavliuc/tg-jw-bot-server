@@ -1,0 +1,19 @@
+{
+  "name": "tg-jw-app-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.61.0",
+    "prettier": "^3.0.3"
+  }
+}
