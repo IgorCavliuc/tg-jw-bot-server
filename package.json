@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js && node ping.js",
+    "start": "node index.js && node ping.js",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
