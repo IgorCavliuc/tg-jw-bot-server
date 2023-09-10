@@ -4,22 +4,32 @@ const webAppUrl = "https://eclectic-stardust-c9ad9a.netlify.app/";
 
 const bot = new TelegramBot(token, { polling: true });
 
-function checkForUpdates() {
-  bot
-    .getUpdates({ offset: -1 })
-    .then((updates) => {
-      if (updates.length > 0) {
-        updates.forEach((update) => {
-          console.log(update);
-        });
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching updates:", error);
-    });
-}
+const http = require("http");
+const { exec } = require("child_process");
 
-setInterval(checkForUpdates, 5000);
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer((req, res) => {
+  if (req.method === "POST" && req.url === "/restart") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Restarting server...");
+
+    exec("pm2 restart myApp", (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error restarting server: ${error}`);
+        return;
+      }
+      console.log(`Server restarted: ${stdout}`);
+    });
+  } else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("Not Found");
+  }
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 bot.on("message", (msg) => {
   const chatId = msg.chat.id;
