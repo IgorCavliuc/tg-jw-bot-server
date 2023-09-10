@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon index.js && node ping.js",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
@@ -14,6 +14,7 @@
     "nodemon": "^3.0.1"
   },
   "dependencies": {
+    "node-fetch": "^3.3.2",
     "node-telegram-bot-api": "^0.61.0",
     "prettier": "^3.0.3"
   }
