@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js && node ping.js",
+    "dev": "nodemon index.js && node ping.js",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
