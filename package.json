@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js && node ping.js",
+    "start": "pm2 start  index.js",
     "dev": "nodemon index.js && node ping.js",
     "build": "webpack --config webpack.config.js"
   },
@@ -15,6 +15,10 @@
     "nodemon": "^3.0.1"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
     "node-fetch": "^3.3.2",
     "node-telegram-bot-api": "^0.61.0",
     "prettier": "^3.0.3"
