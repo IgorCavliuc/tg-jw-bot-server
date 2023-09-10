@@ -9,10 +9,8 @@ function checkForUpdates() {
     .getUpdates({ offset: -1 })
     .then((updates) => {
       if (updates.length > 0) {
-        // Process the updates if there are any
         updates.forEach((update) => {
           console.log(update);
-          // Add your custom processing logic here
         });
       }
     })
@@ -21,10 +19,8 @@ function checkForUpdates() {
     });
 }
 
-// Set an interval to check for updates every 500 seconds (adjust as needed)
 setInterval(checkForUpdates, 5000);
 
-// Optionally, you can handle incoming messages as well
 bot.on("message", (msg) => {
   const chatId = msg.chat.id;
   const messageText = msg.text;
