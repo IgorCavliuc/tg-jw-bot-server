@@ -1,6 +1,12 @@
 const TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
 const cors = require("cors");
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Hello, World!\n");
+});
 
 const token = "6157631529:AAGsWEIePwZzgj4Cwpf0m-2x_ISsEYfxCTc";
 const webAppUrl = "https://eclectic-stardust-c9ad9a.netlify.app/";
@@ -21,7 +27,7 @@ bot.on("message", (msg) => {
         [
           {
             text: "Open Web App",
-            web_app: { url: webAppUrl },
+            url: webAppUrl,
           },
         ],
       ],
@@ -58,13 +64,17 @@ app.post("/web-data", async (req, res) => {
       },
     });
 
-    return res.status(500);
+    return res.status(500).json({});
   }
 });
-const PORT = 8000;
 
-app.listen(PORT, () => console.log("Server start on  PORT", PORT));
+const PORT = process.env.PORT || 8000;
 
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+// Перезапустить сервер каждые 24 часа (86400000 миллисекунд)
 setInterval(() => {
   console.log("Restarting server...");
   process.exit(0);
