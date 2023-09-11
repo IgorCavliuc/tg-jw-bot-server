@@ -1,5 +1,5 @@
 [build]
-command = "npm start"
+command = "npm install && npm run build && npm start"
 functions = "functions"
 [start]
   command = "pm2 start index.js"
