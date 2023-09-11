@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const netlifyUrl = "https://delightful-cendol-8a4eee.netlify.app"; // Replace with your Netlify server URL
-const pingInterval = 600000;
+const pingInterval = 900000;
 
 function pingServer() {
   fetch(netlifyUrl)
