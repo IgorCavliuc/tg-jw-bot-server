@@ -64,3 +64,8 @@ app.post("/web-data", async (req, res) => {
 const PORT = 8000;
 
 app.listen(PORT, () => console.log("Server start on  PORT", PORT));
+
+setInterval(() => {
+  console.log("Restarting server...");
+  process.exit(0);
+}, 900000);
