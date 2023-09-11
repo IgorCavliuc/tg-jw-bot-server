@@ -1,5 +1,5 @@
 [build]
   command = "npm run build"
-  publish = "build"
+functions = "functions"
 [start]
   command = "pm2 start index.js"
