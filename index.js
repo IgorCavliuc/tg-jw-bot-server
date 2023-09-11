@@ -47,7 +47,7 @@ app.post("/web-data", async (req, res) => {
         message_text: "This is a sample article.",
       },
     });
-    return res.status(200).json({ });
+    return res.status(200).json({});
   } catch {
     await bot.answerWebAppQuery(queryId, {
       type: "article",
