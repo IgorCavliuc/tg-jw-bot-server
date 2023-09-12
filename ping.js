@@ -1,9 +1,9 @@
-const fetch = require("node-fetch");
-const netlifyUrl = "https://delightful-cendol-8a4eee.netlify.app"; // Replace with your Netlify server URL
-const pingInterval = 900000;
+import fetch from "node-fetch";
+const herokuUrl = "https://git.heroku.com/tg-jw-bot-server.git"; // Replace with your Netlify server URL
+const pingInterval = 5000;
 
 function pingServer() {
-  fetch(netlifyUrl)
+  fetch(herokuUrl)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
